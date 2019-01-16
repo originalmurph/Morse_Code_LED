@@ -18,3 +18,11 @@ Modifications by Joe Murphy 11/2018
 1)Fixed a malloc leak.  The linked list is built per character (not sure why not pulled directly from string as yet), but the very tight memory supply runs out very fast as is.
       Also fixed 1st link (root) not being used for a character.
 2)Put large table (Ardunio wise) into code space, which frees up quite a bit of data RAM
+3) FIXME: Looks like characters get dropped if I input a long string.  Not sure if that is a function of Arduino limitations or not.
+      When I input with strings, I get no characters dropped.  Need to get rid of linked list structure and operate off of simple strings.
+4) DONE: Early on got no warnings on float versus int for DOT / DASH table, but now get warning being converted to int.  Unclear why it is not an int to start with (versus double).
+      DONE: Also looks like WORD_SPACE is not being scaled like rest of values.  
+      DONE: Also why not scale everything directly in terms of DOTS versus other values.
+5) FIXME: Add a speaker for playing a tone.
+6) DONE: Bunch of arrays in beginning of program that are never referenced.  Commented them out (even though compiler pretty much took care of it).
+7) DONE: Added debug so I can make sure lookup table is functioning (got tired of counting dots and dashes).  This means I also dumped any notion of floating point values in calculations.
